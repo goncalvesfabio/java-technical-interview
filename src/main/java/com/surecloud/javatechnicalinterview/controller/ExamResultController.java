@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ExamResultController {
 
     @PostMapping
-    public ResponseEntity<Void> addNewExamResult(@RequestBody @Validated ExamResultRequest examResultRequest) {
+    public ResponseEntity<ExamResultResponse> addExamResult(@RequestBody @Validated ExamResultRequest examResultRequest) {
         return ResponseEntity.created(URI.create(Constants.RESULTS_API)).body(null);
     }
 
