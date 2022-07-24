@@ -1,4 +1,4 @@
-package com.surecloud.javatechnicalinterview.exceptions;
+package com.surecloud.javatechnicalinterview.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
