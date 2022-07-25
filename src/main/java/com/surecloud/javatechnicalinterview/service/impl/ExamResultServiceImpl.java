@@ -7,6 +7,7 @@ import com.surecloud.javatechnicalinterview.exception.ResourceNotFoundException;
 import com.surecloud.javatechnicalinterview.respository.ExamResultRepository;
 import com.surecloud.javatechnicalinterview.service.ExamResultService;
 import com.surecloud.javatechnicalinterview.service.mapper.ExamResultMapper;
+import com.surecloud.javatechnicalinterview.utils.ErrorConstants;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -39,6 +40,7 @@ public class ExamResultServiceImpl implements ExamResultService {
     @Override
     public ExamResultResponse findExamResultById(UUID id) {
         return ExamResultMapper.mapExamResultEntityToResponse(examResultRepository.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException(String.format("Exam result with id %s not found", id))));
+            .orElseThrow(
+                () -> new ResourceNotFoundException(String.format(ErrorConstants.RESULT_NOT_FOUND_MESSAGE, id))));
     }
 }
