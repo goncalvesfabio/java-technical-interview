@@ -1,6 +1,7 @@
 package com.surecloud.javatechnicalinterview.util;
 
 
+import com.surecloud.javatechnicalinterview.domain.entity.ExamResultEntity;
 import com.surecloud.javatechnicalinterview.domain.request.ExamResultRequest;
 import com.surecloud.javatechnicalinterview.domain.response.ExamResultResponse;
 import java.time.LocalDate;
@@ -22,6 +23,15 @@ public class ExamResultCreator {
             .name(examResultRequest.getName())
             .score(examResultRequest.getScore())
             .dateTaken(examResultRequest.getDateTaken())
+            .build();
+    }
+
+    public static ExamResultEntity createExamResultEntity(UUID id, String name, Integer score, LocalDate dateTaken) {
+        return ExamResultEntity.builder()
+            .id(id)
+            .name(name)
+            .score(score)
+            .dateTaken(dateTaken)
             .build();
     }
 }
