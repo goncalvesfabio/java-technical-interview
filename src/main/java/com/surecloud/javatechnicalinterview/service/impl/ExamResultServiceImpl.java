@@ -39,6 +39,6 @@ public class ExamResultServiceImpl implements ExamResultService {
     @Override
     public ExamResultResponse findExamResultById(UUID id) {
         return ExamResultMapper.mapExamResultEntityToResponse(examResultRepository.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException(String.format("Result with id %s not found", id))));
+            .orElseThrow(() -> new ResourceNotFoundException(String.format("Exam result with id %s not found", id))));
     }
 }

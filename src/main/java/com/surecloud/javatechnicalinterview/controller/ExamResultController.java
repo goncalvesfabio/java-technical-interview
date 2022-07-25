@@ -6,11 +6,11 @@ import com.surecloud.javatechnicalinterview.domain.request.ExamResultRequest;
 import com.surecloud.javatechnicalinterview.domain.response.ExamResultResponse;
 import com.surecloud.javatechnicalinterview.service.ExamResultService;
 import com.surecloud.javatechnicalinterview.utils.Constants;
-import java.net.URI;
 import java.util.List;
 import java.util.UUID;
+import javax.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,18 +30,18 @@ public class ExamResultController {
 
     @PostMapping
     public ResponseEntity<ExamResultResponse> addExamResult(
-        @RequestBody @Validated ExamResultRequest examResultRequest) {
-        return ResponseEntity.created(URI.create(Constants.RESULTS_API))
+        @RequestBody @Valid ExamResultRequest examResultRequest) {
+        return ResponseEntity.status(HttpStatus.CREATED)
             .body(examResultService.addExamResult(examResultRequest));
     }
 
     @GetMapping
     public ResponseEntity<List<ExamResultResponse>> findAllResults() {
-        return ResponseEntity.ok(examResultService.findAllExamResults());
+        return ResponseEntity.status(HttpStatus.OK).body(examResultService.findAllExamResults());
     }
 
     @GetMapping(ID_API)
     public ResponseEntity<ExamResultResponse> findResultById(@PathVariable UUID id) {
-        return ResponseEntity.ok(examResultService.findExamResultById(id));
+        return ResponseEntity.status(HttpStatus.OK).body(examResultService.findExamResultById(id));
     }
 }
