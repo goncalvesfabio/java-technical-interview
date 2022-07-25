@@ -36,7 +36,7 @@ class ExamResultControllerTest {
 
     @Test
     @DisplayName("Add exam result when successful")
-    void addExamResultWhenSuccessfull() {
+    void testAddExamResultWhenSuccessfull() {
         ExamResultRequest examResultRequest = ExamResultCreator
             .createExamResultRequest(TestConstants.NAME_TEST, TestConstants.SCORE_TEST, LocalDate.of(2022, 10, 03));
 
@@ -60,7 +60,7 @@ class ExamResultControllerTest {
 
     @Test
     @DisplayName("Find all exam result when successful")
-    void findAllResultsWhenSuccessfull() {
+    void testFindAllResultsWhenSuccessfull() {
         ExamResultRequest examResultRequest = ExamResultCreator
             .createExamResultRequest(TestConstants.NAME_TEST, TestConstants.SCORE_TEST, LocalDate.of(2022, 10, 03));
 
@@ -91,7 +91,7 @@ class ExamResultControllerTest {
 
     @Test
     @DisplayName("Find exam result by id when successful")
-    void findResultByIdWhenSuccessfull() {
+    void testFindResultByIdWhenSuccessfull() {
         ExamResultRequest examResultRequest = ExamResultCreator
             .createExamResultRequest(TestConstants.NAME_TEST, TestConstants.SCORE_TEST, LocalDate.of(2022, 10, 03));
 
@@ -115,7 +115,7 @@ class ExamResultControllerTest {
 
     @Test
     @DisplayName("Find exam result by id when not found")
-    void findResultByIdWhenNotFound() {
+    void testFindResultByIdWhenNotFound() {
         UUID id = UUID.randomUUID();
 
         when(examResultServiceMock.findExamResultById(any()))

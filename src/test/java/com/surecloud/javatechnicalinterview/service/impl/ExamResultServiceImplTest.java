@@ -40,7 +40,7 @@ class ExamResultServiceImplTest {
 
     @Test
     @DisplayName("Add exam result when successful")
-    void addExamResultWhenSuccessfull() {
+    void testAddExamResultWhenSuccessfull() {
 
         UUID id = UUID.randomUUID();
         ExamResultRequest examResultRequest = ExamResultCreator
@@ -70,7 +70,7 @@ class ExamResultServiceImplTest {
 
     @Test
     @DisplayName("Find all exam result when successful")
-    void findAllResultsWhenSuccessfull() {
+    void testFindAllResultsWhenSuccessfull() {
         UUID id1 = UUID.randomUUID();
         UUID id2 = UUID.randomUUID();
         ExamResultRequest examResultRequest = ExamResultCreator
@@ -104,7 +104,7 @@ class ExamResultServiceImplTest {
 
     @Test
     @DisplayName("Find exam result by id when successful")
-    void findResultByIdWhenSuccessfull() {
+    void testFindResultByIdWhenSuccessfull() {
         UUID id = UUID.randomUUID();
         ExamResultRequest examResultRequest = ExamResultCreator
             .createExamResultRequest(TestConstants.NAME_TEST, TestConstants.SCORE_TEST, LocalDate.of(2022, 10, 03));
@@ -129,7 +129,7 @@ class ExamResultServiceImplTest {
 
     @Test
     @DisplayName("Find exam result by id when not found")
-    void findResultByIdWhenNotFound() {
+    void testFindResultByIdWhenNotFound() {
         UUID id = UUID.randomUUID();
 
         when(examResultRepositoryMock.findById(any()))
